@@ -1,0 +1,48 @@
+name: Build Rockpi 4b Armbian Image
+
+on: [workflow_dispatch]
+jobs:
+  build-armbian:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Rebuild Armbian
+        uses: armbian/build@v25.8.0-trunk.460
+        with:
+          armbian_token: "${{ secrets.GITHUB_TOKEN }}"
+          armbian_release: "bookworm"
+          armbian_kernel_branch: "edge"
+          armbian_target: "build"
+          armbian_board: "rockpi-4b"
+          armbian_ui: "kde-plasma"
+          armbian_release_tittle: "SCIE1006 Rock 4se Armbian Image"
+        continue-on-error: true
+      - name: List files
+        run: |
+          echo "Filess:"
+          du -h build/output/images/* || true
+          echo Successfully built Armbian image for Rock 4se.
+          echo 'FROM docker.io/library/python:3.12-slim' >> Dockerfile
+          echo 'RUN mkdir -p /images' >> Dockerfile
+          echo 'COPY build/output/images/* /images/' >> Dockerfile
+          echo 'WORKDIR /images' >> Dockerfile
+          echo 'EXPOSE 8000' >> Dockerfile
+          echo 'CMD ["python3", "-m", "http.server"]' >> Dockerfile
+          echo "Dockerfile created successfully."
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/arm64,linux/amd64
+          context: .
+          push: true
+          tags: kennycheng/scie1006-rock4se:rockpi-4b
