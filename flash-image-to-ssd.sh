@@ -53,7 +53,7 @@ btrfs subvolume create /mnt/home
 
 echo "=== modify fstab to use the SSD as root ==="
 echo "/dev/nvme0n1p1 / btrfs defaults,compress=lzo,subvol=@ 0 1" > /mnt/etc/fstab
-echo "/dev/nvme0n1p1 /home btrfs defaults,compress=lzo,subvol=./home 0 1" > /mnt/etc/fstab
+echo "/dev/nvme0n1p1 /home btrfs defaults,compress=lzo,subvol=./home 0 1" >> /mnt/etc/fstab
 echo "/dev/mmcblk1p3 /boot ext4 defaults,noauto 0 2" >> /mnt/etc/fstab
 
 echo "=== setting up hostname ==="
