@@ -40,6 +40,13 @@ After the installation is complete, you will need to clone the repository contai
 git clone https://github.com/hkbu-kennycheng/scie1006-rock4se.git
 ```
 
+OR  
+
+```bash
+git clone https://github.com/hkbu-kennycheng/scie1006-rock4se.git
+```
+
+
 When the repository is cloned, navigate to the directory and run the following command to start the flashing process:
 
 ```bash
