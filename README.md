@@ -43,7 +43,7 @@ git clone https://github.com/hkbu-kennycheng/scie1006-rock4se.git
 OR  
 
 ```bash
-git clone https://github.com/hkbu-kennycheng/scie1006-rock4se.git
+git clone https://github.com/scie1006/scie1006-rock4se.git
 ```
 
 
