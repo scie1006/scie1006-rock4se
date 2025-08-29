@@ -10,12 +10,21 @@ Navigate to the user's extensions directory and find the folder corresponding to
 ```
     sudo cp -r ~/.vscode/extensions/ms-python.python-<version> /usr/share/code/resources/app/extensions/
 ```
+
+```
+    sudo cp -r ~/.vscode/extensions/ms-python.* /usr/share/code/resources/app/extensions/
+```
 (Replace <version> with the actual version number of the installed extension.) Ensure correct permissions and executability.  
 Verify that the copied extension files have appropriate permissions, especially ensuring that any helper executables within the extension are executable.
 
 
 ```
     sudo chmod +x $(find /usr/share/code/resources/app/extensions/ms-python.python-<version> -type f -exec file {} \; | grep -E 'ELF[^,]+executable' | cut -d: -f1)
+```
+
+
+```
+    sudo chmod +x $(find /usr/share/code/resources/app/extensions/ms-python.* -type f -exec file {} \; | grep -E 'ELF[^,]+executable' | cut -d: -f1)
 ```
 - Restart VS Code.
   
