@@ -3,14 +3,17 @@
 
 # install python extension in vs code
 # then run the following to copy the extension to all users
+echo "copying vscode python extensions..."
 echo "kennycheng" | sudo -S cp -r ~/.vscode/extensions/ms-python.* /usr/share/code/resources/app/extensions/
 sudo chmod +x $(find /usr/share/code/resources/app/extensions/ms-python.* -type f -exec file {} \; | grep -E 'ELF[^,]+executable' | cut -d: -f1)
 
 #     
+echo "rm ssdm and install pyttsx3..."
 echo "kennycheng" | sudo -S rm /etc/sddm.conf.d/* /usr/share/xsessions/*
 echo "kennycheng" | sudo -S pip install --break-system-packages pyttsx3
 
 # pin applications to taskbar, then run the following to add the pinned application to other users
+echo "pin taskbar application as current user..."
 SOURCE_FILE = "/home/sandy/.config/plasma-org.kde.plasma.desktop-appletsrc"
 # Loop through users g01 to g20
 for i in $(seq -w 1 20); do
