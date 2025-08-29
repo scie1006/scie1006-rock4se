@@ -25,7 +25,6 @@ for i in $(seq -w 1 20); do
     #echo "$TARGET_PATH"
     sudo cp "$SOURCE_FILE" "$TARGET_PATH"
     # Change the owner of the file to the user
-    sudo chown "$USER":"$USER" "$TARGET_PATH$(basename "$SOURCE_FILE")"
-    echo "kennycheng" | sudo -S chown "$USER":"$USER" "$TARGET_PATH"
+    sudo chown "$USER":"$USER" "$TARGET_PATH"    
     echo "Copied $SOURCE_FILE to $TARGET_PATH and changed ownership to $USER."
 done
