@@ -9,3 +9,16 @@ sudo chmod +x $(find /usr/share/code/resources/app/extensions/ms-python.* -type 
 #     
 echo "kennycheng" | sudo -S rm /etc/sddm.conf.d/* /usr/share/xsessions/*
 echo "kennycheng" | sudo -S pip install --break-system-packages pyttsx3
+
+# pin applications to taskbar, then run the following to add the pinned application to other users
+SOURCE_FILE = "/home/sandy/.config/plasma-org.kde.plasma.desktop-appletsrc"
+# Loop through users g01 to g20
+for i in $(seq -w 1 20); do
+    USER="g$i"
+    # Define the target path 
+    TARGET_PATH="/home/$USER/.config/plasma-org.kde.plasma.desktop-appletsrc"
+    echo "kennycheng" | sudo -S cp "$SOURCE_FILE" "$TARGET_PATH"
+    # Change the owner of the file to the user
+    echo "kennycheng" | sudo -S chown "$USER":"$USER" "$TARGET_PATH"
+    echo "Copied $SOURCE_FILE to $TARGET_PATH and changed ownership to $USER."
+done
