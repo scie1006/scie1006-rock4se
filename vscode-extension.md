@@ -18,7 +18,7 @@ Add the workbench.colorTheme property with your chosen theme name. For example, 
 
 ```
 {
-    "workbench.colorTheme": "Light Modern"
+    "workbench.colorTheme": "Default Light Modern"
 }
 ```
 
