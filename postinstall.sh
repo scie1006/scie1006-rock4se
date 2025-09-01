@@ -6,6 +6,24 @@
 echo "installing vscode python extensions..."
 sudo code --no-sandbox --user-data-dir=/root/.vscode --extensions-dir /usr/share/code/resources/app/extensions --install-extension ms-python.python
 
+
+# set default vscode theme to "Default Light Modern" for user g01~g20
+echo "setting vscode theme...
+# Loop through users g01 to g20
+for i in $(seq -w 1 20); do
+    USER="g$i"
+
+    # Define the target file path
+    TARGET_FILE="/home/$USER/.config/Code/User/settings.json"
+
+    # Create the JSON content
+    echo '{' > "$TARGET_FILE"
+    echo '    "workbench.colorTheme": "Default Light Modern"' >> "$TARGET_FILE"
+    echo '}' >> "$TARGET_FILE"
+
+    # Inform the user
+    echo "Settings file created at: $TARGET_FILE"
+
 #     
 echo "rm ssdm and install pyttsx3..."
 sudo rm /etc/sddm.conf.d/* /usr/share/xsessions/*
