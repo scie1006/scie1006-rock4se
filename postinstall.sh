@@ -27,8 +27,8 @@ for i in $(seq -w 1 20); do
     
     sudo cp "$SOURCE_FILE" "$TARGET_FILE"
     # Change the owner of the file to the user
-    sudo chown "$USER":"$USER" /home/$USER/.config/Code/
-    sudo chown -R "$USER":"$USER" /home/$USER/.config/Code/"$TARGET_FILE"
+    sudo chown "$USER":"$USER" /home/$USER/.config/Code
+    sudo chown -R "$USER":"$USER" /home/$USER/.config/Code
     # Inform the user
     echo "Settings file created at: $TARGET_FILE"
 done
