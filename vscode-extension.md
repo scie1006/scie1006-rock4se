@@ -16,7 +16,7 @@ Light Modern
 sudo nano /usr/share/code/resources/app/extensions/theme-defaults/themes/settings.json
 ```
 
-```
+
 ### json
 
 ```
