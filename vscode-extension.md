@@ -6,16 +6,13 @@ sudo code --extensions-dir /usr/share/code/resources/app/extensions --install-ex
 ```
 
 ## Set the theme as default for all users
+### system-wide settings file
+As a superuser, create a settings.json file in a location that VS Code will read for default values.
 
-```
-sudo nano /usr/share/code/resources/app/extensions/settings.json
-```
-Light Modern
-/usr/share/code/resources/app/extensions/theme-defaults/themes.
 ```
 sudo nano /usr/share/code/resources/app/extensions/theme-defaults/themes/settings.json
 ```
-
+Add the workbench.colorTheme property with your chosen theme name. For example, to set "Light Morden" as the default theme, add this line and save the file:
 
 ### json
 
