@@ -25,7 +25,7 @@ for i in $(seq -w 1 20); do
 
     # Define the target file path
     TARGET_FILE="/home/$USER/.config/Code/User/settings.json"
-    
+    sudo mkdir -p /home/$USER/.config/Code/User/
     sudo cp "$SOURCE_FILE" "$TARGET_FILE"
     # Change the owner of the file to the user
     sudo chown "$USER":"$USER" /home/$USER/.config/Code
