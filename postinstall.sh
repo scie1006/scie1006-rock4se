@@ -17,12 +17,12 @@ for i in $(seq -w 1 20); do
     TARGET_FILE="/home/$USER/.config/Code/User/settings.json"
     
     # Create the directory if it doesn't exist
-    mkdir -p "$(dirname "$TARGET_FILE")"
+    sudo mkdir -p "$(dirname "$TARGET_FILE")"
     
     # Create the JSON content
-    echo '{' > "$TARGET_FILE"
-    echo '    "workbench.colorTheme": "Default Light Modern"' >> "$TARGET_FILE"
-    echo '}' >> "$TARGET_FILE"
+    sudo echo '{' > "$TARGET_FILE"
+    sudo echo '    "workbench.colorTheme": "Default Light Modern"' >> "$TARGET_FILE"
+    sudo echo '}' >> "$TARGET_FILE"
 
     # Inform the user
     echo "Settings file created at: $TARGET_FILE"
