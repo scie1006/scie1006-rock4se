@@ -2,7 +2,7 @@
 ## Install vscode Python extensions for all users
 
 ```
-sudo code --extensions-dir /usr/share/code/resources/app/extensions --install-extension ms-python.python
+sudo code --no-sandbox --user-data-dir=/root/.vscode --extensions-dir /usr/share/code/resources/app/extensions --install-extension ms-python.python
 ```
 
 ## Set the theme as default for all users
