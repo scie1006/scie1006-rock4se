@@ -23,6 +23,7 @@ for i in $(seq -w 1 20); do
 
     # Inform the user
     echo "Settings file created at: $TARGET_FILE"
+done
 
 #     
 echo "rm ssdm and install pyttsx3..."
