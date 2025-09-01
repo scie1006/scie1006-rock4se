@@ -8,7 +8,7 @@ sudo code --no-sandbox --user-data-dir=/root/.vscode --extensions-dir /usr/share
 
 
 # set default vscode theme to "Default Light Modern" for user g01~g20
-echo "setting vscode theme...
+echo "setting vscode theme..."
 # Loop through users g01 to g20
 for i in $(seq -w 1 20); do
     USER="g$i"
