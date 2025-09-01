@@ -1,5 +1,5 @@
 
-## Install vscode Python extensions to all users
+## Install vscode Python extensions for all users
 
 ```
 sudo code --extensions-dir /usr/share/code/resources/app/extensions --install-extension ms-python.python
@@ -23,22 +23,4 @@ Add the workbench.colorTheme property with your chosen theme name. For example, 
 ```
 
 
-sudo nano /usr/share/code/resources/app/extensions/theme-defaults/package.json
-```
-
-### json
-
-In the contributes section, add an entry for your theme to ensure it's properly recognized. For example:  
-```
-"contributes": {
-    "themes": [
-        {
-            "label": "My Default Theme",
-            "uiTheme": "Light Modern",
-            "path": "./themes/settings.json"
-        }
-    ]
-}
-
-```
 
