@@ -10,6 +10,7 @@ sudo code --no-sandbox --user-data-dir=/root/.vscode --extensions-dir /usr/share
 # set default vscode theme to "Default Light Modern" for user g01~g20
 echo "setting vscode theme..."
 
+mkdir -p /home/sandy/.config/Code/User/
 SOURCE_FILE="/home/sandy/.config/Code/User/settings.json"
 
 cat <<EOL > "$SOURCE_FILE"
