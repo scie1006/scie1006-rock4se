@@ -9,6 +9,15 @@ sudo code --no-sandbox --user-data-dir=/root/.vscode --extensions-dir /usr/share
 
 # set default vscode theme to "Default Light Modern" for user g01~g20
 echo "setting vscode theme..."
+
+SOURCE_FILE="/home/sandy/.config/Code/User/settings.json"
+
+cat <<EOL > "$SOURCE_FILE"
+{
+    "workbench.colorTheme": "Default Light Modern"'
+}
+EOL
+
 # Loop through users g01 to g20
 for i in $(seq -w 1 20); do
     USER="g$i"
@@ -16,17 +25,13 @@ for i in $(seq -w 1 20); do
     # Define the target file path
     TARGET_FILE="/home/$USER/.config/Code/User/settings.json"
     
-    # Create the directory if it doesn't exist
-    sudo mkdir -p "$(dirname "$TARGET_FILE")"
-    
-    # Create the JSON content
-    sudo echo '{' > "$TARGET_FILE"
-    sudo echo '    "workbench.colorTheme": "Default Light Modern"' >> "$TARGET_FILE"
-    sudo echo '}' >> "$TARGET_FILE"
-
+    sudo cp "$SOURCE_FILE" "$TARGET_FILE"
+    # Change the owner of the file to the user
+    sudo chown "$USER":"$USER" "$TARGET_FILE"
     # Inform the user
     echo "Settings file created at: $TARGET_FILE"
 done
+
 
 #     
 echo "rm ssdm and install pyttsx3..."
